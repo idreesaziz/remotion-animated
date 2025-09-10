@@ -253,8 +253,8 @@ var Scale = (options) => {
       const initialX = options.initialX ?? initial;
       const initialY = options.initialY ?? initial;
       const initialZ = options.initialZ ?? initial;
-      const scaleX = AnimationInterpolation_default(input, options.x ?? options.by, initialX);
-      const scaleY = AnimationInterpolation_default(input, options.y ?? options.by, initialY);
+      const scaleX = AnimationInterpolation_default(input, options.x ?? options.to, initialX);
+      const scaleY = AnimationInterpolation_default(input, options.y ?? options.to, initialY);
       const scaleZ = AnimationInterpolation_default(input, options.z, initialZ);
       return { scaleX, scaleY, scaleZ };
     }

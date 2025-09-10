@@ -5,20 +5,18 @@ import AnimationOptions from './AnimationOptions';
 
 export type ScaleOptions = AnimationOptions & {
   /**
-   * The element will be proportionately scaled up or down by this factor
-   * along the x and y axes.
+   * The element will be proportionately scaled from `initial` to `to` (x and y axes).
    *
    * **Examples:**
-   * - `1` means the element will stay the same size.
-   * - `2` means the element will scale up to be twice as big.
-   * - `0.5` means the element will scale down to be half as big.
+   * - `initial: 1, to: 2` means the element will scale from 1x to 2x.
+   * - `initial: 0.5, to: 1` means the element will scale from half to normal size.
    */
-  by?: number;
-  /** The element will be scaled up or down horizontally by this factor. */
+  to?: number;
+  /** The element will be scaled horizontally from initialX to x. */
   x?: number;
-  /** The element will be scaled up or down vertically by this factor. */
+  /** The element will be scaled vertically from initialY to y. */
   y?: number;
-  /** The element will be scaled in 3D space up or down along the z-axis by this factor. */
+  /** The element will be scaled in 3D space from initialZ to z. */
   z?: number;
   /** The proportional scale factor that is used at the start of the animation. _Defaults to `1`._ */
   initial?: number;
@@ -47,12 +45,12 @@ const Scale = (options: ScaleOptions): Animation => {
 
       const scaleX = interpolateAnimation(
         input,
-        options.x ?? options.by,
+        options.x ?? options.to,
         initialX
       );
       const scaleY = interpolateAnimation(
         input,
-        options.y ?? options.by,
+        options.y ?? options.to,
         initialY
       );
       const scaleZ = interpolateAnimation(input, options.z, initialZ);

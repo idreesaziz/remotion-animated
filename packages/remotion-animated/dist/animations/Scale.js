@@ -1,5 +1,5 @@
-import { valueWithEasing } from '../easing/EasingBehaviour.js';
-import interpolateAnimation from './AnimationInterpolation.js';
+import { valueWithEasing } from '../easing/EasingBehaviour';
+import interpolateAnimation from './AnimationInterpolation';
 /**
  * The `Scale` animation scales an element horizontally, vertically or both, using a `transform`.
  */
@@ -14,8 +14,8 @@ const Scale = (options) => {
             const initialX = (_b = options.initialX) !== null && _b !== void 0 ? _b : initial;
             const initialY = (_c = options.initialY) !== null && _c !== void 0 ? _c : initial;
             const initialZ = (_d = options.initialZ) !== null && _d !== void 0 ? _d : initial;
-            const scaleX = interpolateAnimation(input, (_e = options.x) !== null && _e !== void 0 ? _e : options.by, initialX);
-            const scaleY = interpolateAnimation(input, (_f = options.y) !== null && _f !== void 0 ? _f : options.by, initialY);
+            const scaleX = interpolateAnimation(input, (_e = options.x) !== null && _e !== void 0 ? _e : options.to, initialX);
+            const scaleY = interpolateAnimation(input, (_f = options.y) !== null && _f !== void 0 ? _f : options.to, initialY);
             const scaleZ = interpolateAnimation(input, options.z, initialZ);
             return { scaleX, scaleY, scaleZ };
         },
